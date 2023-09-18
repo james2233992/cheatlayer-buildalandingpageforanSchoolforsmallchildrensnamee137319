@@ -1,102 +1,93 @@
+<html> lang="es">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Zardo School</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .hero-image {
+      background-image: url('https://source.unsplash.com/featured/?children');
+      background-size: cover;
+      background-position: center;
+      height: 600px;
+    }
+  </style>
+</head>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Fancy Form</title>
-    <style>
-      body {
-        background-color: #eee;
-        font-family: Arial, sans-serif;
-      }
+<body>
+  <header class="bg-blue-500 py-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-white text-2xl font-bold">El Zardo School</h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="#" class="text-white">Inicio</a></li>
+          <li><a href="#" class="text-white">Acerca de</a></li>
+          <li><a href="#" class="text-white">Cursos</a></li>
+          <li><a href="#" class="text-white">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-      .form-container {
-        background-color: white;
-        margin: 50px auto;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        width: 500px;
-      }
+  <section class="hero-image">
+    <div class="container mx-auto flex justify-center items-center h-full">
+      <h2 class="text-white text-4xl font-bold">Bienvenido a El Zardo School</h2>
+    </div>
+  </section>
 
-      .form-container h1 {
-        font-size: 30px;
-        margin-bottom: 20px;
-      }
+  <section class="py-12">
+    <div class="container mx-auto">
+      <h3 class="text-3xl font-bold mb-6">Acerca de Nosotros</h3>
+      <p class="mb-6">El Zardo School es una institución educativa líder para niños pequeños. Brindamos un ambiente
+        estimulante y enriquecedor donde los niños pueden aprender y crecer.</p>
+      <p class="mb-6">Nuestro dedicado equipo de maestros y personal está comprometido en brindar la educación y el
+        cuidado de la más alta calidad para su hijo.</p>
+      <p class="mb-6">Ofrecemos una variedad de cursos y actividades diseñados para promover la creatividad, el
+        pensamiento crítico y el desarrollo social.</p>
+    </div>
+  </section>
 
-      .form-group {
-        margin-bottom: 20px;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .form-group label {
-        margin-bottom: 5px;
-        font-size: 18px;
-      }
-
-      .form-group input[type="text"] {
-        border: none;
-        border-bottom: 2px solid #ddd;
-        font-size: 18px;
-        padding: 5px;
-      }
-
-      .form-group input[type="submit"] {
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        padding: 10px;
-        font-size: 18px;
-        cursor: pointer;
-        margin-top: 10px;
-      }
-
-      .result {
-        margin-top: 20px;
-        font-size: 18px;
-        display: none;
-      }
-
-      .result p {
-        margin-bottom: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="form-container">
-      <h1>Fancy Form</h1>
-      <form>
-        <div class="form-group">
-          <label>Input:</label>
-          <input type="text" id="input-field" required />
+  <section class="bg-gray-100 py-12">
+    <div class="container mx-auto">
+      <h3 class="text-3xl font-bold mb-6">Cursos</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow p-6">
+          <h4 class="text-xl font-bold mb-4">Arte y Manualidades</h4>
+          <p class="mb-4">Nuestro curso de arte y manualidades fomenta que los niños exploren su creatividad a través de
+            diferentes medios.</p>
+          <a href="#" class="text-blue-500">Más información</a>
         </div>
-        <input type="submit" value="Submit" />
-      </form>
-      <div class="result">
-        <p>Result:</p>
-        <div id="result-field"></div>
+        <div class="bg-white rounded-lg shadow p-6">
+          <h4 class="text-xl font-bold mb-4">Música y Danza</h4>
+          <p class="mb-4">Nuestro curso de música y danza ayuda a los niños a desarrollar ritmo, coordinación y
+            expresión corporal.</p>
+          <a href="#" class="text-blue-500">Más información</a>
+        </div>
+        <div class="bg-white rounded-lg shadow p-6">
+          <h4 class="text-xl font-bold mb-4">Aprendizaje de Idiomas</h4>
+          <p class="mb-4">Nuestro curso de aprendizaje de idiomas introduce a los niños a diferentes idiomas y culturas.</p>
+          <a href="#" class="text-blue-500">Más información</a>
+        </div>
       </div>
     </div>
-    <script>
-      const form = document.querySelector("form");
-      const input = document.getElementById("input-field");
-      const result = document.getElementById("result-field");
-      const resultSection = document.querySelector(".result");
-      
-      form.addEventListener("submit", submitForm);
+  </section>
 
-      async function submitForm(event) {
-        event.preventDefault();
-        const data = { input: input.value };
-        const response = await fetch('/api/request', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(data)
-          })
-        const json = await response.json();
-        result.textContent = json.choices[0].text;
-        resultSection.style.display = "block";
-      }
-    </script>
-  </body>
+  <section class="py-12">
+    <div class="container mx-auto">
+      <h3 class="text-3xl font-bold mb-6">Contáctanos</h3>
+      <p class="mb-6">Si tienes alguna pregunta o deseas inscribir a tu hijo en uno de nuestros cursos, no dudes en
+        contactarnos.</p>
+      <p class="mb-6">Teléfono: 123-456-7890</p>
+      <p class="mb-6">Email: info@elzardoschool.com</p>
+    </div>
+  </section>
+
+  <footer class="bg-gray-200 py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2021 El Zardo School. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+
 </html>
